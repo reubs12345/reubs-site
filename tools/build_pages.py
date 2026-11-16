@@ -201,6 +201,17 @@ DATA["stx-legion"] = {
    ("Aug 14", "STX: Powering Productive Bitcoin Capital", "https://zeroauthoritydao.com/bounty/a4243163-91ea-47a9-81b7-0e81edd490ed", 41, 33100, 1746, 500),
   ],
 }
+
+COVER_PHOTO = {"stacked-up": "../episode-thumbnail.jpg"}  # others get a generated brand cover
+COVER_WORD = {"stx-legion": "Legion", "stacked-up": "Stacked Up", "leo": "$LEO"}
+
+def cover_html(key, title, img):
+    if key in COVER_PHOTO:
+        return f'<div class="cover photo" style="background-image:url(\'{COVER_PHOTO[key]}\')"></div>'
+    word = esc(COVER_WORD.get(key, title))
+    return (f'<div class="cover gen" aria-hidden="true"><span class="cover-word">{word}</span>'
+            f'<img class="cover-art blur" src="{img}" alt=""><img class="cover-art" src="{img}" alt=""></div>')
+
 ORDER = [("stacks", "Stacks"), ("tenero", "Tenero"), ("stacked-up", "Stacked Up"), ("stx-legion", "STX Legion"), ("leo", "LEO")]
 NAV = ORDER + [("contact", "Contact")]
 AUTHORS = {"reubs": ("reubs", "@reubs_btc", "../assets/me.png", True),
@@ -539,9 +550,12 @@ def page(key):
 {nav(key)}
 
 <header class="hero page-hero">
+  <div class="wrap cover-wrap">
+    <a class="back" href="../">← Back to Reubs</a>
+    {cover_html(key, d["title"], "../assets/" + d["logo"])}
+  </div>
   <div class="wrap hero-grid">
     <div class="hero-main">
-      <a class="back" href="../">← Back to Reubs</a>
       <img class="page-logo" src="../assets/{d["logo"]}" alt="{esc(d["title"])}">
       <div class="role-pill">{esc(d["role"])}</div>
       <h1>{esc(d["title"])}<em>.</em></h1>
@@ -566,6 +580,7 @@ def page(key):
   </div>
 </footer>
 <script src="../live.js" defer></script>
+<script src="../motion.js" defer></script>
 </body>
 </html>
 """
@@ -633,7 +648,8 @@ def contact_page():
 <header class="hero page-hero">
   <div class="wrap">
     <a class="back" href="../">← Back to Reubs</a>
-    <h1>Contact<em>.</em></h1>
+    {cover_html("contact", "Contact", "../avatar.png")}
+    <h1 style="margin-top:28px">Contact<em>.</em></h1>
     <p>All my links in one place. The quickest way to reach me is a DM on <a href="https://x.com/reubs_btc" target="_blank" rel="noopener" style="color:var(--orange);font-weight:600">X @reubs_btc</a>.</p>
   </div>
 </header>
@@ -656,6 +672,7 @@ def contact_page():
   </div>
 </footer>
 <script src="../live.js" defer></script>
+<script src="../motion.js" defer></script>
 </body>
 </html>
 """

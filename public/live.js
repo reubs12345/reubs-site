@@ -141,4 +141,31 @@
     ifr.allowFullscreen = true;
     box.innerHTML = ''; box.appendChild(ifr);
   });
+
+  // Live price ticker (Tenero API via /api/prices)
+  var ticker = document.querySelector('[data-ticker]');
+  if (ticker) getJSON('/api/prices').then(function (d) {
+    if (!d || !d.tokens) return;
+    var ICONS = { STX: 'assets/stacks.png', LEO: 'assets/leo.png' };
+    function fp(n) {
+      if (n >= 1000) return '$' + Math.round(n).toLocaleString('en-US');
+      if (n >= 0.01) return '$' + n.toFixed(n >= 1 ? 2 : 4);
+      return '$' + n.toPrecision(3);
+    }
+    var html = '';
+    d.tokens.forEach(function (t) {
+      if (!(t.price > 0)) return;
+      var ic = ICONS[t.sym] ? '<img src="' + BASE + ICONS[t.sym] + '" alt="">' : '<i class="tk-btc">₿</i>';
+      var ch = t.change == null ? '' : '<em class="' + (t.change >= 0 ? 'up' : 'down') + '">' + (t.change >= 0 ? '+' : '') + t.change.toFixed(1) + '%</em>';
+      html += '<span class="tk">' + ic + '<b>' + t.sym + '</b>' + fp(t.price) + ch + '</span>';
+      if (t.sym === 'LEO' && t.holders) html += '<span class="tk"><img src="' + BASE + ICONS.LEO + '" alt=""><b>LEO holders</b>' + Number(t.holders).toLocaleString('en-US') + '</span>';
+    });
+    if (!html) return;
+    html = '<span class="tk tk-live"><i></i>Live · Tenero</span>' + html;
+    ticker.querySelectorAll('.ticker-group').forEach(function (g) {
+      var stat = g.getAttribute('data-static') || g.innerHTML;
+      g.setAttribute('data-static', stat);
+      g.innerHTML = html + stat;
+    });
+  }).catch(function () {});
 })();
