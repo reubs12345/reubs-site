@@ -161,7 +161,7 @@
       if (t.sym === 'LEO' && t.holders) html += '<span class="tk"><img src="' + BASE + ICONS.LEO + '" alt=""><b>LEO holders</b>' + Number(t.holders).toLocaleString('en-US') + '</span>';
     });
     if (!html) return;
-    html = '<span class="tk tk-live"><i></i>Live · Tenero</span>' + html;
+    html = '<span class="tk tk-live"><i></i>Live · ' + esc(d.source || 'CoinGecko') + '</span>' + html;
     ticker.querySelectorAll('.ticker-group').forEach(function (g) {
       var stat = g.getAttribute('data-static') || g.innerHTML;
       g.setAttribute('data-static', stat);

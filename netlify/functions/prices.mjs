@@ -1,28 +1,23 @@
-// Live prices for the home-page ticker, from the public Tenero API (no key needed).
-const API = "https://api.tenero.io/v1/stacks/tokens/";
-const TOKENS = [
-  ["BTC", "SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token"],
-  ["STX", "stx"],
-  ["LEO", "SP1AY6K3PQV5MRT6R4S671NWW2FRVPKM0BR162CT6.leo-token"],
-];
-
-async function token([sym, id]) {
-  try {
-    const r = await fetch(API + id, { headers: { accept: "application/json" } });
-    if (!r.ok) throw new Error(r.status);
-    const d = (await r.json()).data || {};
-    const p = d.price || {};
-    let change = p.price_change_1d_pct;
-    if (change == null && p.price_1d_ago > 0 && p.current_price > 0) change = (p.current_price / p.price_1d_ago - 1) * 100;
-    return { sym, price: d.price_usd ?? p.current_price ?? null, change: change ?? null, holders: d.holder_count ?? null };
-  } catch {
-    return { sym, price: null, change: null, holders: null };
-  }
-}
+// Live BTC + STX prices for the home-page ticker, from CoinGecko's free API (no key needed).
+// (Tenero's public token endpoint was returning stale prices, so it isn't used here.)
+const URL = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,blockstack&vs_currencies=usd&include_24hr_change=true";
+const MAP = [["BTC", "bitcoin"], ["STX", "blockstack"]];
 
 export default async () => {
-  const tokens = await Promise.all(TOKENS.map(token));
-  return new Response(JSON.stringify({ updated: new Date().toISOString(), tokens }), {
+  let tokens = [];
+  try {
+    const r = await fetch(URL, { headers: { accept: "application/json" } });
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    tokens = MAP.map(([sym, id]) => ({
+      sym,
+      price: d[id]?.usd ?? null,
+      change: d[id]?.usd_24h_change ?? null,
+    }));
+  } catch {
+    return new Response(JSON.stringify({ error: "unavailable" }), { status: 502, headers: { "content-type": "application/json", "cache-control": "no-store" } });
+  }
+  return new Response(JSON.stringify({ updated: new Date().toISOString(), source: "CoinGecko", tokens }), {
     headers: {
       "content-type": "application/json",
       "cache-control": "public, max-age=60",
