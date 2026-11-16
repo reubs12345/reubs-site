@@ -314,3 +314,48 @@
   .band-tenero .post .hl,.band-tenero .post-more{color:var(--orange)}
   .band-tenero .chip{background:rgba(255,255,255,.06);color:#EDEDEF;border:1px solid rgba(255,255,255,.08)}
   .band-tenero .chip:hover{background:var(--orange);border-color:var(--orange)}
+
+  /* ===== What I'm building: brand-coloured cards ===== */
+  .band-grid{position:relative;background:#fff}
+  .band-grid::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(12,12,13,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(12,12,13,.045) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)}
+  .band-grid .wrap{position:relative}
+  .card.brand{position:relative;overflow:hidden;color:#fff;border:0;box-shadow:0 24px 50px -28px rgba(12,12,13,.6)}
+  .card.brand > *{position:relative}
+  .card.brand::before{content:"";position:absolute;inset:0;pointer-events:none}
+  .card.brand p{color:rgba(255,255,255,.75)}
+  .card.brand .role{color:rgba(255,255,255,.8)}
+  .card.brand .mark{box-shadow:0 8px 20px -6px rgba(0,0,0,.5)}
+  .card.brand .chip{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.14)}
+  .card.brand .chip:hover{background:#fff;color:#0C0C0D}
+  .card.brand .chip.chip-go{background:#fff;color:#0C0C0D;border-color:#fff}
+  .card.brand:hover{transform:translateY(-4px);border:0}
+
+  .card.brand.c-stacks{background:linear-gradient(145deg,#FF7A45,#E2471C)}
+  .card.brand.c-stacks::before{background:radial-gradient(300px 200px at 100% 0%,rgba(255,255,255,.28),transparent 70%)}
+  .card.brand.c-stacks .chip.chip-go{color:#E2471C}
+  .card.brand.c-stacks:hover{box-shadow:0 28px 60px -24px rgba(226,71,28,.7)}
+
+  .card.brand.c-tenero{background:radial-gradient(320px 220px at 100% 0%,rgba(252,100,50,.35),transparent 70%),#0A0A0B}
+  .card.brand.c-tenero::before{background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:28px 28px}
+  .card.brand.c-tenero .role{color:var(--orange)}
+  .card.brand.c-tenero .chip.chip-go{background:var(--orange);border-color:var(--orange);color:#fff}
+  .card.brand.c-tenero:hover{box-shadow:0 28px 60px -24px rgba(252,100,50,.55)}
+
+  .card.brand.c-stackedup{background:#0B0B0B}
+  .card.brand.c-stackedup::before{background:radial-gradient(circle at 105% 110%,transparent 120px,rgba(243,154,30,.55) 121px,transparent 123px),radial-gradient(circle at -5% -10%,transparent 90px,rgba(243,154,30,.35) 91px,transparent 93px)}
+  .card.brand.c-stackedup .role{color:#F39A1E}
+  .card.brand.c-stackedup h3{text-transform:uppercase;letter-spacing:-.01em}
+  .card.brand.c-stackedup .chip.chip-go{background:#F39A1E;border-color:#F39A1E;color:#0B0B0B}
+  .card.brand.c-stackedup:hover{box-shadow:0 28px 60px -24px rgba(243,154,30,.55)}
+
+  .card.brand.c-legion{background:radial-gradient(320px 240px at 100% 0%,rgba(232,176,74,.25),transparent 70%),linear-gradient(150deg,#8B1A1A,#4A0B0B)}
+  .card.brand.c-legion .role{color:#E8B04A}
+  .card.brand.c-legion .chip.chip-go{background:#E8B04A;border-color:#E8B04A;color:#4A0B0B}
+  .card.brand.c-legion:hover{box-shadow:0 28px 60px -24px rgba(139,26,26,.75)}
+
+  .card.brand.c-leo{background:radial-gradient(360px 220px at 100% 0%,rgba(232,160,216,.45),transparent 70%),linear-gradient(120deg,#3B1660,#7B2FA8)}
+  .card.brand.c-leo.wide{background:radial-gradient(360px 220px at 100% 0%,rgba(232,160,216,.45),transparent 70%),linear-gradient(120deg,#3B1660,#7B2FA8)}
+  .card.brand.c-leo .role{color:#F2B8E6}
+  .card.brand.c-leo .chip.chip-go{color:#3B1660}
+  .card.brand.c-leo:hover{box-shadow:0 28px 60px -24px rgba(123,47,168,.7)}
+  .card.brand.c-stacks .mark{box-shadow:0 0 0 2px rgba(255,255,255,.55),0 8px 20px -6px rgba(0,0,0,.4)}
