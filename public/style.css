@@ -262,3 +262,31 @@
   .cover.photo::after{display:none}
   .page-hero .photo-wrap{margin-bottom:28px}
   .page-hero .hero-grid > .stats{margin-top:28px}
+
+  /* ===== X band (latest posts) ===== */
+  .band-x{background:#000;color:#E7E9EA}
+  .band-x .label{color:#1D9BF0}
+  .band-x h2{color:#fff}
+  .band-x .post{background:#16181C;border-color:#2F3336;box-shadow:none}
+  .band-x .post:hover{border-color:#1D9BF0;box-shadow:0 20px 40px -20px rgba(29,155,240,.45)}
+  .band-x .post-head b{color:#E7E9EA}
+  .band-x .post-head span{color:#71767B}
+  .band-x .post-head svg{color:#E7E9EA}
+  .band-x .post p{color:#E7E9EA}
+  .band-x .post .hl,.band-x .post-more{color:#1D9BF0}
+  .band-x .tabs button{background:transparent;border-color:#2F3336;color:#71767B}
+  .band-x .tabs button:hover{border-color:#E7E9EA;color:#E7E9EA}
+  .band-x .tabs button.on{background:#E7E9EA;border-color:#E7E9EA;color:#000}
+  .band-x .chip{background:#16181C;color:#E7E9EA;border:1px solid #2F3336}
+  .band-x .chip:hover{background:#1D9BF0;border-color:#1D9BF0;color:#fff}
+
+  /* ===== CMC band ===== */
+  .band-cmc{background:radial-gradient(700px 380px at 90% 0%,rgba(255,255,255,.18),transparent 70%),linear-gradient(160deg,#3861FB,#1E3FCC);color:#fff}
+  .band-cmc .label{color:rgba(255,255,255,.8)}
+  .band-cmc h2{color:#fff}
+  .band-cmc .post{color:#0D1421;border-color:transparent;box-shadow:0 20px 40px -24px rgba(8,20,80,.6)}
+  .band-cmc .post:hover{border-color:#fff;box-shadow:0 24px 50px -20px rgba(8,20,80,.75)}
+  .band-cmc .post .hl,.band-cmc .post-more,.band-cmc .post-head .vb{color:#3861FB}
+  .band-cmc .chip{background:#fff;color:#0D1421}
+  .band-cmc .chip svg{color:#3861FB!important}
+  .band-cmc .chip:hover{background:#0D1421;color:#fff}
