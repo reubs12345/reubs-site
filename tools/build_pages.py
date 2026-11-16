@@ -26,6 +26,12 @@ DATA = {
   "stats": [("4,200+", "BTC distributed"), ("1.6M", "Activated users"), ("493M", "STX locked"), ("3", "Staking bonds sold out")],
   "asof": "Source: stacks.co · Nov 2026",
   "feature": ("stacks-site.jpg", "https://www.stacks.co/", "stacks.co"),
+  # Hand-picked @Stacks posts — update weekly: (date, url, short summary)
+  "official": [
+   ("Nov 5", "https://x.com/Stacks/status/2118374509757845952", "Bitcoin staking Bond 3 fills with 1,005 BTC, with Bullish and 21Shares taking part."),
+   ("Nov 3", "https://x.com/Stacks/status/2117647454002954485", "BitGo clients can now access Bitcoin staking on Stacks without moving their BTC."),
+   ("Oct 16", "https://x.com/Stacks/status/2110841794959470594", "Stacks Q3 recap: 735 BTC across Bonds 1 & 2, staked STX up 25%+ and DEX volume at a 12-month high."),
+  ],
   "bridges": [
    ("sBTC Bridge", "Bring your BTC to Stacks as sBTC — 1:1 Bitcoin you can use in DeFi.", "https://sbtc.stacks.co/", "sbtc.stacks.co"),
    ("USDC Bridge", "Move USDC from Ethereum to Stacks as USDCx.", "https://bridge.stacks.co/usdc/eth/stx", "bridge.stacks.co"),
@@ -181,6 +187,8 @@ PAGE_CSS = """
   .ep-links{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
   .band-dark .chip{background:rgba(255,255,255,.08);color:#fff}
   .notice{margin-top:18px;max-width:620px;font-size:14px;line-height:1.5;color:#7a3a1c;background:var(--orange-soft);border:1px solid rgba(252,100,50,.25);border-radius:12px;padding:12px 14px}
+  .posts.official{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:860px){.posts.official{grid-template-columns:1fr}}
   .tl{position:relative;padding-left:28px}
   .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--orange),rgba(252,100,50,.15))}
   .tl-item{position:relative;display:block;padding:0 0 26px}
@@ -368,6 +376,19 @@ def page(key):
     <div class="pods">{pc}</div>
   </div>
 </section>"""
+        official = ""
+        if "official" in d:
+            oc = "".join(f'<a class="post" href="{u}" target="_blank" rel="noopener"><div class="post-head"><img src="../assets/stacks.png" alt=""><div><b>Stacks</b><span>@Stacks · {dt}</span></div><svg><use href="#i-x"/></svg></div><p>{hl(t)}</p><span class="post-more">View on X →</span></a>' for dt, u, t in d["official"])
+            official = f"""
+
+<section>
+  <div class="wrap">
+    <div class="label">Official</div>
+    <h2>From @Stacks</h2>
+    <div class="posts official">{oc}</div>
+    <a class="chip more-posts" href="https://x.com/Stacks" target="_blank" rel="noopener"><svg><use href="#i-x"/></svg>Follow @Stacks</a>
+  </div>
+</section>"""
         mid = ""
         if "pillars" in d:
             pills = "".join(f'<div class="pillar"><div class="n">{n}</div><h3>{esc(t)}</h3><p>{esc(p)}</p></div>' for n, t, p in d["pillars"])
@@ -389,7 +410,7 @@ def page(key):
 </section>"""
         la, lf = d.get("live", ("", ""))
         live = f' data-live="{la}" data-count="6"' + (f' data-filter="{lf}"' if lf else "") if la else ""
-        body += extra_top + mid + extra_mid + f"""
+        body += extra_top + mid + extra_mid + official + f"""
 
 <section id="news">
   <div class="wrap">

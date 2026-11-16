@@ -38,6 +38,8 @@
   .ep-links{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
   .band-dark .chip{background:rgba(255,255,255,.08);color:#fff}
   .notice{margin-top:18px;max-width:620px;font-size:14px;line-height:1.5;color:#7a3a1c;background:var(--orange-soft);border:1px solid rgba(252,100,50,.25);border-radius:12px;padding:12px 14px}
+  .posts.official{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:860px){.posts.official{grid-template-columns:1fr}}
   .tl{position:relative;padding-left:28px}
   .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--orange),rgba(252,100,50,.15))}
   .tl-item{position:relative;display:block;padding:0 0 26px}
