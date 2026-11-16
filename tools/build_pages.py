@@ -184,7 +184,9 @@ DATA["stx-legion"] = {
   "links": [("tg", "Join on Telegram", "https://t.me/+wcOPrJbqGfxiMTY0"),
             ("web", "Bounties on Zero Authority", "https://zeroauthoritydao.com/bounty-hub/72bc33ef-ada8-4d1a-bc68-551df2032f0d")],
   "stats_big": ("630K", "Impressions from bounty posts"),
-  "stats": [("11", "Bounties hosted"), ("670", "Total entries"), ("37.9K", "Total engagements"), ("5,500", "STX reward pools")],
+  "stats": [("12", "Bounties hosted"), ("670", "Total entries"), ("37.9K", "Total engagements"), ("6,000", "STX reward pools")],
+  # Current open bounty: (title, url, pool, posted, ends). Set to None when nothing is live.
+  "live_bounty": ("Stacks Clipping Bounty for New Era, Wolf of All Streets and The Block", "https://zeroauthoritydao.com/bounty/9e2ca501-3465-4fb8-962a-3b4b1a6e74fe", 500, "Nov 13", "Nov 20"),
   "asof": "Zero Authority bounties · Aug–Nov 2026",
   # Bounties — update weekly from the Notion "STX Legion Bounty Tracker": (week, title, url, entries, impressions, engagement, pool)
   "bounties": [
@@ -350,6 +352,19 @@ def static_eps_json(eps):
 
 def k(n):
     return f"{n/1000:.1f}K".replace(".0K", "K") if n >= 1000 else str(n)
+
+def live_bounty_html(lb):
+    if not lb:
+        return ""
+    t, u, pool, posted, ends = lb
+    return f'''<a class="b-live" href="{u}" target="_blank" rel="noopener">
+      <div class="b-live-main">
+        <div class="b-live-tags"><span class="live-tag"><i></i>Live</span><span>Posted {esc(posted)} · Ends {esc(ends)}</span></div>
+        <h3>{hl(t)}</h3>
+        <p>Clip Muneeb's recent interviews on New Era, Wolf of All Streets and The Block, and share them on X.</p>
+      </div>
+      <div class="b-live-side"><b>{pool}</b><span>STX reward pool</span><span class="b-live-cta">Enter the bounty →</span></div>
+    </a>'''
 
 def bounties_html(items):
     return "".join(f'''<a class="bounty" href="{u}" target="_blank" rel="noopener">
@@ -551,10 +566,12 @@ def page(key):
 </section>"""
         if "bounties" in d:
             mid += f"""
-<section class="band-warm">
+<section class="band-legion">
   <div class="wrap">
     <div class="label">Zero Authority DAO</div>
-    <h2>Bounties we've hosted</h2>
+    <h2>Bounties</h2>
+    {live_bounty_html(d.get("live_bounty"))}
+    <div class="b-sub">Previous bounties</div>
     <div class="bounties">{bounties_html(d["bounties"])}</div>
     <a class="chip more-posts" href="https://zeroauthoritydao.com/bounty-hub/72bc33ef-ada8-4d1a-bc68-551df2032f0d" target="_blank" rel="noopener"><svg><use href="#i-web"/></svg>All bounties on Zero Authority</a>
   </div>

@@ -408,3 +408,36 @@
   img[src$="leo.png"]{border-radius:50%!important;background:transparent!important}
   .ltl-row + .ltl-row{margin-top:-70px}
   @media(max-width:760px){.ltl-row + .ltl-row{margin-top:0}}
+
+  /* ===== STX Legion bounties band ===== */
+  .band-legion{position:relative;color:#fff;background:radial-gradient(700px 420px at 100% 0%,rgba(232,176,74,.22),transparent 70%),radial-gradient(600px 400px at 0% 100%,rgba(255,90,60,.18),transparent 70%),linear-gradient(160deg,#5A0E0E,#8B1A1A 55%,#4A0B0B)}
+  .band-legion::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-conic-gradient(from 0deg at 50% -10%,rgba(232,176,74,.06) 0 6deg,transparent 6deg 18deg)}
+  .band-legion .wrap{position:relative}
+  .band-legion .label{color:#E8B04A}
+  .band-legion h2{color:#fff}
+  .b-sub{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin:34px 0 14px}
+  .b-live{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:center;padding:28px;border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(232,176,74,.55);box-shadow:0 0 0 4px rgba(232,176,74,.08),0 30px 60px -28px rgba(0,0,0,.7);transition:transform .2s ease,box-shadow .2s ease}
+  .b-live:hover{transform:translateY(-3px);box-shadow:0 0 0 4px rgba(232,176,74,.2),0 34px 70px -28px rgba(0,0,0,.8)}
+  .b-live-tags{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.7);margin-bottom:10px}
+  .live-tag{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;background:#22C55E;color:#04260F;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .live-tag i{width:8px;height:8px;border-radius:50%;background:#04260F;animation:livepulse 1.4s ease-in-out infinite}
+  @keyframes livepulse{50%{opacity:.25}}
+  .b-live h3{font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:-.02em;line-height:1.2}
+  .b-live p{margin-top:8px;color:rgba(255,255,255,.75);font-size:15px}
+  .b-live .hl{color:#E8B04A}
+  .b-live-side{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:20px;border-radius:16px;background:rgba(0,0,0,.25);border:1px solid rgba(232,176,74,.3)}
+  .b-live-side b{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#E8B04A}
+  .b-live-side span{font-size:13px;color:rgba(255,255,255,.7)}
+  .b-live-side .b-live-cta{margin-top:14px;font-size:14px;font-weight:700;color:#4A0B0B;background:#E8B04A;padding:9px 14px;border-radius:999px}
+  @media(max-width:760px){.b-live{grid-template-columns:1fr;padding:22px}}
+  .band-legion .bounty{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);box-shadow:none;color:#fff}
+  .band-legion .bounty:hover{border-color:#E8B04A;background:rgba(255,255,255,.09)}
+  .band-legion .b-week{color:#E8B04A}
+  .band-legion .b-pool{background:#E8B04A;color:#4A0B0B}
+  .band-legion .b-stats{color:rgba(255,255,255,.6)}
+  .band-legion .b-stats b{color:#fff}
+  .band-legion .bounty .hl{color:#F5C97A}
+  .band-legion .post-more{color:#E8B04A}
+  .band-legion .chip{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.15)}
+  .band-legion .chip:hover{background:#E8B04A;color:#4A0B0B}
+  @media(prefers-reduced-motion:reduce){.live-tag i{animation:none}}
