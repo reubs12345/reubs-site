@@ -40,6 +40,16 @@
   .notice{margin-top:18px;max-width:620px;font-size:14px;line-height:1.5;color:#7a3a1c;background:var(--orange-soft);border:1px solid rgba(252,100,50,.25);border-radius:12px;padding:12px 14px}
   .posts.official{grid-template-columns:repeat(3,1fr)}
   @media(max-width:860px){.posts.official{grid-template-columns:1fr}}
+  .bounties{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:760px){.bounties{grid-template-columns:1fr}}
+  .bounty{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 2px rgba(12,12,13,.04),0 10px 30px -16px rgba(12,12,13,.14);transition:transform .2s ease,border-color .2s ease}
+  .bounty:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .b-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .b-week{color:var(--orange)}
+  .b-pool{background:var(--ink);color:#fff;border-radius:999px;padding:4px 10px;letter-spacing:0}
+  .bounty h3{font-size:17px;font-weight:700;line-height:1.35;flex:1}
+  .b-stats{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+  .b-stats b{color:var(--ink)}
   .tl{position:relative;padding-left:28px}
   .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--orange),rgba(252,100,50,.15))}
   .tl-item{position:relative;display:block;padding:0 0 26px}
@@ -92,12 +102,12 @@
 <nav>
   <div class="wrap">
     <a href="../" class="logo"><img src="../assets/me.png" alt="">reubs</a>
-    <div class="nav-links"><a href="../stacks/" style="color:var(--ink)">Stacks</a><a href="../tenero/">Tenero</a><a href="../stacked-up/">Stacked Up</a><a href="../leo/">LEO</a><a href="../contact/">Contact</a></div>
+    <div class="nav-links"><a href="../stacks/" style="color:var(--ink)">Stacks</a><a href="../tenero/">Tenero</a><a href="../stacked-up/">Stacked Up</a><a href="../stx-legion/">STX Legion</a><a href="../leo/">LEO</a><a href="../contact/">Contact</a></div>
     <button class="menu-btn" type="button" aria-label="Menu" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
   </div>
-  <div class="mobile-menu"><a href="../"><img src="../assets/me.png" alt="">Home<span class="arr">→</span></a><a href="../stacks/" class="on"><img src="../assets/stacks.png" alt="">Stacks<span class="arr">→</span></a><a href="../tenero/"><img src="../assets/tenero.png" alt="">Tenero<span class="arr">→</span></a><a href="../stacked-up/"><img src="../assets/stackedup.png" alt="">Stacked Up<span class="arr">→</span></a><a href="../leo/"><img src="../assets/leo.png" alt="">LEO<span class="arr">→</span></a><a href="../contact/"><img src="../assets/me.png" alt="">Contact<span class="arr">→</span></a></div>
+  <div class="mobile-menu"><a href="../"><img src="../assets/me.png" alt="">Home<span class="arr">→</span></a><a href="../stacks/" class="on"><img src="../assets/stacks.png" alt="">Stacks<span class="arr">→</span></a><a href="../tenero/"><img src="../assets/tenero.png" alt="">Tenero<span class="arr">→</span></a><a href="../stacked-up/"><img src="../assets/stackedup.png" alt="">Stacked Up<span class="arr">→</span></a><a href="../stx-legion/"><img src="../assets/legion.jpg" alt="">Legion<span class="arr">→</span></a><a href="../leo/"><img src="../assets/leo.png" alt="">LEO<span class="arr">→</span></a><a href="../contact/"><img src="../assets/me.png" alt="">Contact<span class="arr">→</span></a></div>
 </nav>
-<div class="tabbar" role="navigation" aria-label="Sections"><a href="../"><img src="../assets/me.png" alt="">Home</a><a href="../stacks/" class="on"><img src="../assets/stacks.png" alt="">Stacks</a><a href="../tenero/"><img src="../assets/tenero.png" alt="">Tenero</a><a href="../stacked-up/"><img src="../assets/stackedup.png" alt="">Stacked Up</a><a href="../leo/"><img src="../assets/leo.png" alt="">LEO</a></div>
+<div class="tabbar" role="navigation" aria-label="Sections"><a href="../"><img src="../assets/me.png" alt="">Home</a><a href="../stacks/" class="on"><img src="../assets/stacks.png" alt="">Stacks</a><a href="../tenero/"><img src="../assets/tenero.png" alt="">Tenero</a><a href="../stacked-up/"><img src="../assets/stackedup.png" alt="">Stacked Up</a><a href="../stx-legion/"><img src="../assets/legion.jpg" alt="">Legion</a><a href="../leo/"><img src="../assets/leo.png" alt="">LEO</a></div>
 
 <header class="hero page-hero">
   <div class="wrap hero-grid">

@@ -152,7 +152,32 @@ DATA["leo"] = {
    ("leo", "Oct 7", "https://x.com/LeoCoinSTX/status/2107848804808663418", "$LEO looks good on @tenero_io\n\nYou can now swap there too!"),
   ],
 }
-ORDER = [("stacks", "Stacks"), ("tenero", "Tenero"), ("stacked-up", "Stacked Up"), ("leo", "LEO")]
+
+DATA["stx-legion"] = {
+  "title": "STX Legion", "logo": "legion.jpg", "role": "Founder",
+  "tagline": "Growing the Stacks community, one post at a time.",
+  "intro": "STX Legion runs weekly content bounties on Zero Authority DAO, rewarding creators for spreading the word about Stacks. The Telegram community shares Tenero market snapshots, Stacks news and $5k+ trade alerts.",
+  "links": [("tg", "Join on Telegram", "https://t.me/+wcOPrJbqGfxiMTY0"),
+            ("web", "Bounties on Zero Authority", "https://zeroauthoritydao.com/bounty-hub/72bc33ef-ada8-4d1a-bc68-551df2032f0d")],
+  "stats_big": ("630K", "Impressions from bounty posts"),
+  "stats": [("11", "Bounties hosted"), ("670", "Total entries"), ("37.9K", "Total engagements"), ("5,500", "STX reward pools")],
+  "asof": "Zero Authority bounties · Aug–Nov 2026",
+  # Bounties — update weekly from the Notion "STX Legion Bounty Tracker": (week, title, url, entries, impressions, engagement, pool)
+  "bounties": [
+   ("Nov 5", "Stacks Bitcoin Staking Bond 3 fills 1,005 BTC with Bullish and 21Shares participating", "https://zeroauthoritydao.com/bounty/07833f29-8601-4255-90bd-825e1f0d3748", 83, 129284, 7336, 500),
+   ("Oct 16", "Stacks Q3 Ecosystem Report", "https://zeroauthoritydao.com/bounty/b7dee382-f4bc-4239-b95f-43cfb2e5057d", 59, 59076, 4458, 500),
+   ("Oct 9", "The Frontier of Bitcoin and Stacks 2030 Vision", "https://zeroauthoritydao.com/bounty/ddf6413a-22ff-45d5-8a39-81e394dfbb9a", 73, 54597, 4363, 500),
+   ("Oct 2", "Muneeb is the new Stacks CEO, Bitcoin's Next Frontier", "https://zeroauthoritydao.com/bounty/8699cc4e-35cf-4afe-aefd-c3fbcc82e167", 88, 61018, 4496, 500),
+   ("Sep 25", "Anchorage Institutional BTC Staking on Stacks", "https://zeroauthoritydao.com/bounty/cdf5e946-0add-4cef-9b6e-109b73c57b57", 84, 49794, 3388, 500),
+   ("Sep 18", "Stacks Sats DeFi Incentives Campaign with Zest and Bitflow", "https://zeroauthoritydao.com/bounty/2cad62ed-c51d-4a75-b17d-d5da5a396fe4", 34, 19978, 1415, 500),
+   ("Sep 11", "Stacks Genesis Bond", "https://zeroauthoritydao.com/bounty/a43b34ec-828a-4ac5-a833-7e1981bab634", 50, 49227, 2217, 500),
+   ("Sep 4", "$STX Institutional Adoption", "https://zeroauthoritydao.com/bounty/ebd1b063-e01d-4149-a963-625ae45f551a", 46, 46983, 2206, 500),
+   ("Aug 28", "$STX is THE beta to $BTC", "https://zeroauthoritydao.com/bounty/2aebc6d7-d769-47bb-9370-cd6f4ff37278", 41, 80206, 2981, 500),
+   ("Aug 21", "Stacks (STX) is Building Bitcoin Native Finance", "https://zeroauthoritydao.com/bounty/c650793d-beeb-40f4-a020-ed99c99e5d2f", 71, 46595, 3278, 500),
+   ("Aug 14", "STX: Powering Productive Bitcoin Capital", "https://zeroauthoritydao.com/bounty/a4243163-91ea-47a9-81b7-0e81edd490ed", 41, 33100, 1746, 500),
+  ],
+}
+ORDER = [("stacks", "Stacks"), ("tenero", "Tenero"), ("stacked-up", "Stacked Up"), ("stx-legion", "STX Legion"), ("leo", "LEO")]
 NAV = ORDER + [("contact", "Contact")]
 AUTHORS = {"reubs": ("reubs", "@reubs_btc", "../assets/me.png", True),
            "tenero": ("Tenero", "@tenero_io", "../assets/tenero.png", False),
@@ -189,6 +214,16 @@ PAGE_CSS = """
   .notice{margin-top:18px;max-width:620px;font-size:14px;line-height:1.5;color:#7a3a1c;background:var(--orange-soft);border:1px solid rgba(252,100,50,.25);border-radius:12px;padding:12px 14px}
   .posts.official{grid-template-columns:repeat(3,1fr)}
   @media(max-width:860px){.posts.official{grid-template-columns:1fr}}
+  .bounties{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:760px){.bounties{grid-template-columns:1fr}}
+  .bounty{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:0 1px 2px rgba(12,12,13,.04),0 10px 30px -16px rgba(12,12,13,.14);transition:transform .2s ease,border-color .2s ease}
+  .bounty:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .b-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .b-week{color:var(--orange)}
+  .b-pool{background:var(--ink);color:#fff;border-radius:999px;padding:4px 10px;letter-spacing:0}
+  .bounty h3{font-size:17px;font-weight:700;line-height:1.35;flex:1}
+  .b-stats{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+  .b-stats b{color:var(--ink)}
   .tl{position:relative;padding-left:28px}
   .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--orange),rgba(252,100,50,.15))}
   .tl-item{position:relative;display:block;padding:0 0 26px}
@@ -229,13 +264,13 @@ PAGE_CSS = """
 """
 
 MENU = [("", "Home", "me.png"), ("stacks/", "Stacks", "stacks.png"), ("tenero/", "Tenero", "tenero.png"),
-        ("stacked-up/", "Stacked Up", "stackedup.png"), ("leo/", "LEO", "leo.png"), ("contact/", "Contact", "me.png")]
+        ("stacked-up/", "Stacked Up", "stackedup.png"), ("stx-legion/", "Legion", "legion.jpg"), ("leo/", "LEO", "leo.png"), ("contact/", "Contact", "me.png")]
 
 def mobile_nav(base, active):
     """Hamburger button + dropdown + fixed bottom tab bar. base='' for home, '../' for subpages."""
     btn = '<button class="menu-btn" type="button" aria-label="Menu" onclick="document.body.classList.toggle(\'menu-open\')"><span></span><span></span><span></span></button>'
     menu = "".join(f'<a href="{(base + h) or './'}"{" class=\"on\"" if h == active else ""}><img src="{base}assets/{img}" alt="">{t}<span class="arr">→</span></a>' for h, t, img in MENU)
-    tabs = "".join(f'<a href="{(base + h) or './'}"{" class=\"on\"" if h == active else ""}><img src="{base}assets/{img}" alt="">{t}</a>' for h, t, img in MENU[:5])
+    tabs = "".join(f'<a href="{(base + h) or './'}"{" class=\"on\"" if h == active else ""}><img src="{base}assets/{img}" alt="">{t}</a>' for h, t, img in MENU[:6])
     return btn, f'<div class="mobile-menu">{menu}</div>', f'<div class="tabbar" role="navigation" aria-label="Sections">{tabs}</div>'
 
 def nav(active):
@@ -276,6 +311,16 @@ def stats_html(d):
 def static_eps_json(eps):
     import json
     return json.dumps([{"num": n, "date": f"{dt}, 2026", "yt": yt, "recap": rc, "bullets": b, "static": True} for n, dt, yt, rc, b in eps])
+
+def k(n):
+    return f"{n/1000:.1f}K".replace(".0K", "K") if n >= 1000 else str(n)
+
+def bounties_html(items):
+    return "".join(f'''<a class="bounty" href="{u}" target="_blank" rel="noopener">
+        <div class="b-top"><span class="b-week">Week of {esc(w)}</span><span class="b-pool">{pool} STX</span></div>
+        <h3>{hl(t)}</h3>
+        <div class="b-stats"><span><b>{e}</b> entries</span><span><b>{k(i)}</b> impressions</span><span><b>{k(g)}</b> engagements</span></div>
+        <span class="post-more">View bounty →</span></a>''' for w, t, u, e, i, g, pool in items)
 
 def timeline_html(items):
     return "".join(f'<a class="tl-item" href="{u}" target="_blank" rel="noopener"><div class="when">{esc(w)}</div><h3>{esc(t)}</h3><p>{hl(p)}</p></a>' for w, t, p, u in items)
@@ -413,6 +458,16 @@ def page(key):
     <div class="pillars">{pills}</div>
   </div>
 </section>"""
+        if "bounties" in d:
+            mid += f"""
+<section class="band-warm">
+  <div class="wrap">
+    <div class="label">Zero Authority DAO</div>
+    <h2>Bounties we've hosted</h2>
+    <div class="bounties">{bounties_html(d["bounties"])}</div>
+    <a class="chip more-posts" href="https://zeroauthoritydao.com/bounty-hub/72bc33ef-ada8-4d1a-bc68-551df2032f0d" target="_blank" rel="noopener"><svg><use href="#i-web"/></svg>All bounties on Zero Authority</a>
+  </div>
+</section>"""
         if "timeline" in d:
             mid += f"""
 <section class="band-warm">
@@ -424,7 +479,7 @@ def page(key):
 </section>"""
         la, lf = d.get("live", ("", ""))
         live = f' data-live="{la}" data-count="6"' + (f' data-filter="{lf}"' if lf else "") if la else ""
-        body += extra_top + mid + extra_mid + official + f"""
+        news_sec = "" if "news" not in d else f"""
 
 <section id="news">
   <div class="wrap">
@@ -435,6 +490,7 @@ def page(key):
     </div>
   </div>
 </section>"""
+        body += extra_top + mid + extra_mid + official + news_sec
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
