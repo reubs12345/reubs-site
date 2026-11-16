@@ -178,7 +178,7 @@ DATA["leo"] = {
 DATA["stx-legion"] = {
   "title": "STX Legion", "logo": "legion.jpg", "role": "Founder",
   "tagline": "The $STX Legion is open! 🟧",
-  "intro": ["The best place to keep up with @Stacks news (like the recent @BitGo integration), project updates and the wider market.",
+  "intro": ["The best place to keep up with Stacks news (like the Bitcoin staking bonds), project updates and the wider market.",
             "Live X feeds, KOL channel, a dedicated Korean channel and much more.",
             "Builders, creators, founders and community members welcome! We also run weekly content bounties on Zero Authority DAO, rewarding creators for spreading the word about Stacks."],
   "links": [("tg", "Join on Telegram", "https://t.me/+wcOPrJbqGfxiMTY0"),
