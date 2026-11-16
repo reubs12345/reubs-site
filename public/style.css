@@ -300,3 +300,17 @@
   .band-leo .post .hl,.band-leo .post-more{color:#8B2FC9}
   .band-leo .chip{background:#fff;color:#3B1660}
   .band-leo .chip:hover{background:#E8A0D8;color:#3B1660}
+
+  /* ===== Tenero app-style band (dark, translucent panels) ===== */
+  .band-tenero{position:relative;background:radial-gradient(700px 400px at 100% 0%,rgba(252,100,50,.16),transparent 70%),#0A0A0B;color:#EDEDEF}
+  .band-tenero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px}
+  .band-tenero .wrap{position:relative}
+  .band-tenero .label{color:var(--orange);letter-spacing:.16em}
+  .band-tenero h2{color:#fff}
+  .band-tenero .post{background:rgba(255,255,255,.035);border-color:rgba(255,255,255,.08);box-shadow:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .band-tenero .post:hover{background:rgba(255,255,255,.06);border-color:rgba(252,100,50,.6);box-shadow:0 20px 40px -24px rgba(252,100,50,.5)}
+  .band-tenero .post-head b,.band-tenero .post p,.band-tenero .post-head svg{color:#EDEDEF}
+  .band-tenero .post-head span{color:#8A8A93}
+  .band-tenero .post .hl,.band-tenero .post-more{color:var(--orange)}
+  .band-tenero .chip{background:rgba(255,255,255,.06);color:#EDEDEF;border:1px solid rgba(255,255,255,.08)}
+  .band-tenero .chip:hover{background:var(--orange);border-color:var(--orange)}
