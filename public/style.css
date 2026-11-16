@@ -290,3 +290,13 @@
   .band-cmc .chip{background:#fff;color:#0D1421}
   .band-cmc .chip svg{color:#3861FB!important}
   .band-cmc .chip:hover{background:#0D1421;color:#fff}
+
+  /* ===== LEO purple band ===== */
+  .band-leo{background:radial-gradient(600px 360px at 90% 0%,rgba(232,160,216,.35),transparent 70%),radial-gradient(500px 300px at 0% 100%,rgba(160,90,220,.35),transparent 70%),linear-gradient(160deg,#3B1660,#6E2A9E);color:#fff}
+  .band-leo .label{color:#F2B8E6}
+  .band-leo h2{color:#fff}
+  .band-leo .post{color:#1E0B33;border-color:transparent;box-shadow:0 20px 40px -24px rgba(30,5,50,.7)}
+  .band-leo .post:hover{border-color:#E8A0D8;box-shadow:0 24px 50px -20px rgba(232,160,216,.55)}
+  .band-leo .post .hl,.band-leo .post-more{color:#8B2FC9}
+  .band-leo .chip{background:#fff;color:#3B1660}
+  .band-leo .chip:hover{background:#E8A0D8;color:#3B1660}

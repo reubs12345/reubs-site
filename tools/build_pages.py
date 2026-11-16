@@ -521,7 +521,7 @@ def page(key):
         live = f' data-live="{la}" data-count="6"' + (f' data-filter="{lf}"' if lf else "") if la else ""
         news_sec = "" if "news" not in d else f"""
 
-<section id="news">
+<section id="news"{' class="band-leo"' if key == "leo" else ''}>
   <div class="wrap">
     <div class="label">Latest news</div>
     <h2>What's happening</h2>
