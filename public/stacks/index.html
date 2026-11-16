@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stacks — Reubs</title>
+<meta name="description" content="Stacks: Building Bitcoin Capital Markets.">
+<link rel="icon" href="../avatar.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .back{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--muted);margin-bottom:28px}
+  .back:hover{color:var(--orange)}
+  .page-logo{width:84px;height:84px;border-radius:22px;box-shadow:0 14px 34px -14px rgba(12,12,13,.45);margin-bottom:22px;display:block}
+  .page-hero h1{font-size:clamp(48px,8vw,84px)}
+  .page-hero .role-pill{display:inline-block;font-size:13px;font-weight:600;color:var(--orange);background:var(--orange-soft);padding:6px 12px;border-radius:999px;margin-bottom:14px}
+  .intro{font-size:17px;color:var(--muted);max-width:620px;margin-top:14px}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:860px){.pillars{grid-template-columns:1fr}}
+  .pillar{background:#fff;border:1px solid rgba(252,100,50,.12);border-radius:var(--radius);padding:24px;box-shadow:0 1px 2px rgba(12,12,13,.04),0 10px 30px -14px rgba(12,12,13,.14)}
+  .pillar .n{font-size:13px;font-weight:700;color:var(--orange);letter-spacing:.08em}
+  .pillar h3{font-size:20px;font-weight:800;letter-spacing:-.02em;margin:8px 0 6px}
+  .pillar p{color:var(--muted);font-size:15px}
+  .eps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:960px){.eps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.eps{grid-template-columns:1fr}}
+  .ep{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 2px rgba(12,12,13,.04),0 10px 30px -16px rgba(12,12,13,.14);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+  .ep:hover{transform:translateY(-3px);border-color:var(--orange);box-shadow:0 20px 40px -18px rgba(252,100,50,.4)}
+  .ep-thumb{aspect-ratio:16/9;background:radial-gradient(circle at 30% 20%,rgba(252,100,50,.45),transparent 60%),#0C0C0D;background-size:cover;background-position:center;position:relative;display:flex;align-items:flex-end;padding:14px}
+  .ep-thumb .tag{background:var(--orange);color:#fff;font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px;letter-spacing:.02em}
+  .ep-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+  .ep-date{font-size:13px;color:var(--muted);margin-bottom:8px}
+  .ep ul{list-style:none;font-size:14px;line-height:1.5;flex:1}
+  .ep li{padding-left:16px;position:relative;margin-bottom:4px}
+  .ep li::before{content:"→";position:absolute;left:0;color:var(--orange)}
+  .ep-links{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  .band-dark .chip{background:rgba(255,255,255,.08);color:#fff}
+  .notice{margin-top:18px;max-width:620px;font-size:14px;line-height:1.5;color:#7a3a1c;background:var(--orange-soft);border:1px solid rgba(252,100,50,.25);border-radius:12px;padding:12px 14px}
+  .tl{position:relative;padding-left:28px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--orange),rgba(252,100,50,.15))}
+  .tl-item{position:relative;display:block;padding:0 0 26px}
+  .tl-item::before{content:"";position:absolute;left:-27px;top:4px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--orange)}
+  .tl-item .when{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
+  .tl-item h3{font-size:20px;font-weight:800;letter-spacing:-.02em;margin:4px 0}
+  .tl-item p{color:var(--muted);font-size:15px;max-width:640px}
+  .tl-item:hover h3{color:var(--orange)}
+  .ca{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px;font-size:13px;color:var(--muted)}
+  .ca code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--ink);word-break:break-all}
+  .ca button{font:inherit;font-weight:600;border:0;background:var(--ink);color:#fff;border-radius:999px;padding:8px 14px;cursor:pointer}
+  .feature{display:block;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -30px rgba(252,100,50,.5);transition:transform .25s ease,box-shadow .25s ease;position:relative}
+  .feature:hover{transform:translateY(-4px);box-shadow:0 40px 80px -30px rgba(252,100,50,.6)}
+  .feature img{display:block;width:100%;height:auto}
+  .feature .bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#F6F6F7;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .feature .bar i{width:10px;height:10px;border-radius:50%;background:#E2E2E5;display:inline-block}
+  .feature .bar span{margin-left:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 14px}
+  .feature .bar b{margin-left:auto;color:var(--orange);font-weight:600}
+  .bridges{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.bridges{grid-template-columns:1fr}}
+  .bridge{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:var(--radius);background:linear-gradient(135deg,#0C0C0D,#2a1a14);color:#fff;transition:transform .2s ease,box-shadow .2s ease}
+  .bridge:hover{transform:translateY(-3px);box-shadow:0 20px 40px -18px rgba(252,100,50,.55)}
+  .bridge .k{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--orange);text-transform:uppercase}
+  .bridge h3{font-size:24px;font-weight:800;letter-spacing:-.02em}
+  .bridge p{color:rgba(255,255,255,.7);font-size:15px;flex:1}
+  .bridge .go{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;margin-top:8px;background:var(--orange);color:#fff;font-weight:600;font-size:14px;padding:10px 16px;border-radius:999px}
+  .pods{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:860px){.pods{grid-template-columns:1fr}}
+  .pod{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(12,12,13,.04),0 10px 30px -16px rgba(12,12,13,.14);transition:transform .2s ease,border-color .2s ease}
+  .pod:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .pod .mic{width:44px;height:44px;border-radius:12px;background:var(--orange-soft);color:var(--orange);display:grid;place-items:center}
+  .pod .mic svg{width:22px;height:22px}
+  .pod .who{font-size:13px;color:var(--muted)}
+  .pod h3{font-size:17px;font-weight:700;line-height:1.35}
+  .pod-list{list-style:none;font-size:14px;color:var(--muted);line-height:1.5;flex:1}
+  .pod-list li{padding-left:16px;position:relative;margin-bottom:4px}
+  .pod-list li::before{content:"→";position:absolute;left:0;color:var(--orange)}
+</style>
+</head>
+<body data-base="../">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5z"/></symbol>
+  <symbol id="i-verified" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.5l2.6 1.9 3.2-.2 1 3.1 2.7 1.8-1 3.1 1 3.1-2.7 1.8-1 3.1-3.2-.2L12 22.5l-2.6-1.9-3.2.2-1-3.1L2.5 16l1-3.1-1-3.1 2.7-1.8 1-3.1 3.2.2z"/><path fill="#fff" d="M10.6 15.6l-3.2-3.2 1.4-1.4 1.8 1.8 4.6-4.6 1.4 1.4z"/></symbol>
+  <symbol id="i-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.5 2.6 3.8 5.8 3.8 9.5s-1.3 6.9-3.8 9.5c-2.5-2.6-3.8-5.8-3.8-9.5S9.5 5.1 12 2.5z"/></g></symbol>
+</svg>
+<nav>
+  <div class="wrap">
+    <a href="../" class="logo"><img src="../assets/me.png" alt="">reubs</a>
+    <div class="nav-links"><a href="../stacks/" style="color:var(--ink)">Stacks</a><a href="../tenero/">Tenero</a><a href="../stacked-up/">Stacked Up</a><a href="../leo/">LEO</a><a href="../contact/">Contact</a></div>
+  </div>
+</nav>
+
+<header class="hero page-hero">
+  <div class="wrap hero-grid">
+    <div class="hero-main">
+      <a class="back" href="../">← Back to Reubs</a>
+      <img class="page-logo" src="../assets/stacks.png" alt="Stacks">
+      <div class="role-pill">Ecosystem Growth &amp; Marketing</div>
+      <h1>Stacks<em>.</em></h1>
+      <p><strong>Building Bitcoin Capital Markets.</strong></p>
+      <p class="intro">Stacks is the Bitcoin L2 bringing capital markets to Bitcoin — BTC staking with yield paid in bitcoin, DeFi and a clear roadmap toward privacy and post-quantum security.</p>
+      <div class="socials"><a class="btn btn-primary" href="https://x.com/Stacks" target="_blank" rel="noopener"><svg><use href="#i-x"/></svg>@Stacks</a><a class="btn btn-ghost" href="https://www.stacks.co/" target="_blank" rel="noopener"><svg><use href="#i-web"/></svg>stacks.co</a></div>
+    </div>
+    <aside class="stats" aria-label="Highlights">
+      <div class="stat stat-big"><div class="num">3,125+</div><div class="lbl">BTC deployed</div></div>
+      <div class="stat"><div class="num">4,200+</div><div class="lbl">BTC distributed</div></div><div class="stat"><div class="num">1.6M</div><div class="lbl">Activated users</div></div><div class="stat"><div class="num">493M</div><div class="lbl">STX locked</div></div><div class="stat"><div class="num">3</div><div class="lbl">Staking bonds sold out</div></div>
+      <div class="asof">Source: stacks.co · Nov 2026</div>
+    </aside>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <a class="feature" href="https://www.stacks.co/" target="_blank" rel="noopener">
+      <div class="bar"><i></i><i></i><i></i><span>stacks.co</span><b>Visit stacks.co ↗</b></div>
+      <img src="../assets/stacks-site.jpg" alt="Stacks website" loading="lazy">
+    </a>
+  </div>
+</section>
+
+<section class="band-warm">
+  <div class="wrap">
+    <div class="label">Get started</div>
+    <h2>Bring assets to Stacks</h2>
+    <div class="bridges"><a class="bridge" href="https://sbtc.stacks.co/" target="_blank" rel="noopener"><div class="k">Bridge</div><h3>sBTC Bridge</h3><p>Bring your BTC to Stacks as sBTC — 1:1 Bitcoin you can use in DeFi.</p><span class="go">Open sbtc.stacks.co ↗</span></a><a class="bridge" href="https://bridge.stacks.co/usdc/eth/stx" target="_blank" rel="noopener"><div class="k">Bridge</div><h3>USDC Bridge</h3><p>Move USDC from Ethereum to Stacks as USDCx.</p><span class="go">Open bridge.stacks.co ↗</span></a></div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <h2>The roadmap</h2>
+    <div class="pillars"><div class="pillar"><div class="n">01</div><h3>Bitcoin Capital Markets</h3><p>Live now — BTC staking, bonds and DeFi.</p></div><div class="pillar"><div class="n">02</div><h3>Privacy</h3><p>Bitcoin privacy, targeted for 2027.</p></div><div class="pillar"><div class="n">03</div><h3>Post Quantum</h3><p>Quantum-secure Bitcoin, targeted for 2027.</p></div></div>
+  </div>
+</section>
+
+<section class="band-warm">
+  <div class="wrap">
+    <div class="label">Listen</div>
+    <h2>Recent Stacks podcasts</h2>
+    <div class="pods"><a class="pod" href="https://x.com/new_era_finance/status/2120939689515610454" target="_blank" rel="noopener"><div class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></div><div class="who"><b style="color:var(--ink)">New Era Finance Podcast</b><br>@new_era_finance · Nov 12</div><h3>Muneeb Ali: &quot;I think the bottom is in&quot;</h3><ul class="pod-list"><li>Why negative news stopped moving the price</li><li>The quantum question and self-custody</li><li>Bitcoin as an income-generating asset</li></ul><span class="post-more">Watch on X →</span></a><a class="pod" href="https://x.com/TheBlockCo/status/2120212634914238747" target="_blank" rel="noopener"><div class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></div><div class="who"><b style="color:var(--ink)">The White Papers · The Block</b><br>@TheBlockCo · Nov 10</div><h3>Muneeb on turning bitcoin into productive capital</h3><ul class="pod-list"><li>How Stacks bonds pay bitcoin holders 3% in BTC</li><li>Stacks vs. Lightning</li><li>The quantum threat and Satoshi&#x27;s coins</li></ul><span class="post-more">Watch on X →</span></a><a class="pod" href="https://x.com/scottmelker/status/2119859166600990761" target="_blank" rel="noopener"><div class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></div><div class="who"><b style="color:var(--ink)">The Wolf Of All Streets</b><br>@scottmelker · Nov 9</div><h3>Bitcoin&#x27;s Biggest &quot;Bond&quot; Yet Just Sold Out — What Do Institutions Know?</h3><ul class="pod-list"><li>Why Muneeb is returning to lead Stacks</li><li>Bullish joins the 1,000 BTC Stacks bond</li><li>How Bitcoin yield could drive value to STX</li></ul><span class="post-more">Watch on X →</span></a></div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="label">Latest news</div>
+    <h2>What's happening</h2>
+    <div class="posts" data-live="reubs_btc" data-count="6" data-filter="stacks">
+      <a class="post" href="https://x.com/reubs_btc/status/2120555045070704644" target="_blank" rel="noopener">
+        <div class="post-head"><img src="../assets/me.png" alt=""><div><b>reubs</b><span>@reubs_btc · Nov 11</span></div><svg><use href="#i-x"/></svg></div>
+        <p>This sounds... erm... like a big deal
+
+First ever post-quantum Bitcoin transfer on <span class="hl">@Stacks</span> has just occurred</p>
+        <span class="post-more">Read on X →</span>
+      </a>
+      <a class="post" href="https://x.com/reubs_btc/status/2120141138879496317" target="_blank" rel="noopener">
+        <div class="post-head"><img src="../assets/me.png" alt=""><div><b>reubs</b><span>@reubs_btc · Nov 10</span></div><svg><use href="#i-x"/></svg></div>
+        <p>The Stacks roadmap: Bitcoin Capital Markets → Privacy → Post Quantum
+
+BTC staking is live today with ~1,740 BTC bonded by institutions like <span class="hl">@Bullish</span>, <span class="hl">@21shares</span>, <span class="hl">@HashKeyCloud</span> &amp; <span class="hl">@nakamoto</span></p>
+        <span class="post-more">Read on X →</span>
+      </a>
+      <a class="post" href="https://x.com/reubs_btc/status/2119835843926049212" target="_blank" rel="noopener">
+        <div class="post-head"><img src="../assets/me.png" alt=""><div><b>reubs</b><span>@reubs_btc · Nov 9</span></div><svg><use href="#i-x"/></svg></div>
+        <p>Institutions have locked ~1,740 BTC into <span class="hl">@Stacks</span> bonds, and every one of those bonds needs <span class="hl">$STX</span>
+
+Capacity is set to grow by roughly 1,000 BTC per month</p>
+        <span class="post-more">Read on X →</span>
+      </a>
+      <a class="post" href="https://x.com/reubs_btc/status/2118374851207684584" target="_blank" rel="noopener">
+        <div class="post-head"><img src="../assets/me.png" alt=""><div><b>reubs</b><span>@reubs_btc · Nov 5</span></div><svg><use href="#i-x"/></svg></div>
+        <p>Stacks Bitcoin staking bond 3 is filled: 1,005 BTC!
+
+<span class="hl">@Bullish</span> participating, <span class="hl">@21shares</span> in all 3 bonding periods, and <span class="hl">@BitGo</span> integration now live</p>
+        <span class="post-more">Read on X →</span>
+      </a>
+      <a class="post" href="https://x.com/reubs_btc/status/2117650519959462315" target="_blank" rel="noopener">
+        <div class="post-head"><img src="../assets/me.png" alt=""><div><b>reubs</b><span>@reubs_btc · Nov 3</span></div><svg><use href="#i-x"/></svg></div>
+        <p>Another BIG building block falls into place for <span class="hl">@Stacks</span>
+
+<span class="hl">@BitGo</span> clients can now access Bitcoin staking without moving their BTC to a new provider</p>
+        <span class="post-more">Read on X →</span>
+      </a>
+      <a class="post" href="https://x.com/reubs_btc/status/2111028498647417269" target="_blank" rel="noopener">
+        <div class="post-head"><img src="../assets/me.png" alt=""><div><b>reubs</b><span>@reubs_btc · Oct 16</span></div><svg><use href="#i-x"/></svg></div>
+        <p>Stacks had a BIG Q3 - here are the headlines
+
+→ 735 BTC across Bonds 1 &amp; 2
+→ Staked <span class="hl">$STX</span> up 25%+
+→ <span class="hl">@ZestProtocol</span> hits ATH TVL</p>
+        <span class="post-more">Read on X →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Reubs · <a href="../">reubs.link</a></span>
+    <div class="icons">
+      <a href="https://x.com/reubs_btc" target="_blank" rel="noopener" aria-label="X"><svg><use href="#i-x"/></svg></a>
+      <a href="https://www.instagram.com/reubs.btc/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+      <a href="https://www.youtube.com/@reubsbtc" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a>
+      <a href="https://www.tiktok.com/@stackedupcrypto" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tt"/></svg></a>
+    </div>
+  </div>
+</footer>
+<script src="../live.js" defer></script>
+</body>
+</html>
