@@ -161,7 +161,7 @@ DATA["leo"] = {
    ("Sep 2026", "New look, LEO₿", "A visual refresh and a new \"cat tags\" feature, both built with @boostx_app.", "https://x.com/LeoCoinSTX/status/2096893018230128947"),
    ("Sep 15, 2026", "Leo Cats by the numbers", "16th all-time in Stacks NFT volume, 2nd all-time in secondary sales and the most unique holders of any PFP collection on Stacks.", "https://x.com/LeoCoinSTX/status/2099842841489154339"),
    ("Oct 2026", "Swap on Tenero", "$LEO becomes swappable directly on Tenero, and 30m $LEO (~$3,000) in Feed the Cat rewards are distributed to traders.", "https://x.com/LeoCoinSTX/status/2112495669651124708"),
-   ("Ongoing", "Growing $STX, one cat at a time", "Beyond the milestones, Leo keeps a steady drumbeat of community activity: sponsored events, ecosystem partnerships and recurring poker tournaments among them.", ""),
+   ("Ongoing", "Growing Stacks, one cat at a time!", "Beyond the milestones, Leo keeps a steady drumbeat of community activity: sponsored events, ecosystem partnerships and recurring poker tournaments among them.", ""),
   ],
   "news": [
    ("leo", "Oct 29", "https://x.com/LeoCoinSTX/status/2115764194796810397", "Happy International Cat Day 🐱\n\nFrom your favourite cat on @Stacks - $LEO"),
