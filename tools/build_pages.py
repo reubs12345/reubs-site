@@ -175,8 +175,10 @@ DATA["leo"] = {
 
 DATA["stx-legion"] = {
   "title": "STX Legion", "logo": "legion.jpg", "role": "Founder",
-  "tagline": "Growing the Stacks community, one post at a time.",
-  "intro": "STX Legion runs weekly content bounties on Zero Authority DAO, rewarding creators for spreading the word about Stacks. The Telegram community shares Tenero market snapshots, Stacks news and $5k+ trade alerts.",
+  "tagline": "The $STX Legion is open! 🟧",
+  "intro": ["The best place to keep up with @Stacks news (like the recent @BitGo integration), project updates and the wider market.",
+            "Live X feeds, KOL channel, a dedicated Korean channel and much more.",
+            "Builders, creators, founders and community members welcome! We also run weekly content bounties on Zero Authority DAO, rewarding creators for spreading the word about Stacks."],
   "links": [("tg", "Join on Telegram", "https://t.me/+wcOPrJbqGfxiMTY0"),
             ("web", "Bounties on Zero Authority", "https://zeroauthoritydao.com/bounty-hub/72bc33ef-ada8-4d1a-bc68-551df2032f0d")],
   "stats_big": ("630K", "Impressions from bounty posts"),
@@ -542,7 +544,7 @@ def page(key):
       <div class="role-pill">{esc(d["role"])}</div>
       <h1>{esc(d["title"])}<em>.</em></h1>
       <p><strong>{esc(d["tagline"])}</strong></p>
-      <p class="intro">{esc(d["intro"])}</p>{notice_html(d)}
+      {"".join(f'<p class="intro">{esc(t)}</p>' for t in (d["intro"] if isinstance(d["intro"], list) else [d["intro"]]))}{notice_html(d)}
       <div class="socials">{links}</div>{ca_html(d)}
     </div>
     {stats_html(d)}
