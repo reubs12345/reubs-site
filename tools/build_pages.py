@@ -122,26 +122,46 @@ DATA = {
 DATA["leo"] = {
   "title": "LEO", "logo": "leo.png", "role": "Cat Executive Officer",
   "tagline": "The cat on Stacks.",
-  "intro": "$LEO is Muneeb's pet cat, living on the Stacks blockchain. It launched at a $5k market cap around three years ago, started the airdrop meta on Stacks and is still here.",
+  "intro": "$LEO, Muneeb's cat, living on the Stacks blockchain. Growing $STX one cat at a time.",
   "live": ("LeoCoinSTX", ""),
   "notice": "$LEO is a community memecoin with no utility and no intrinsic value. Nothing on this page is financial advice.",
   "links": [("x", "@LeoCoinSTX", "https://x.com/LeoCoinSTX"),
             ("web", "Trade on Tenero", "https://tenero.io/stacks/swap?from=STX&to=SP1AY6K3PQV5MRT6R4S671NWW2FRVPKM0BR162CT6.leo-token"),
             ("web", "Trade on Zest", "https://app.zestprotocol.com/swap/stx-to-leo"),
             ("web", "Trade on Bitflow", "https://app.bitflow.finance/pools/dlmm/SM1FKXGNZJWSTWDWXQZJNF7B5TV5ZB235JTCXYXKD.dlmm-pool-leo-stx-v-1-bps-50")],
-  "stats_big": ("$5K", "Launch market cap, ~3 years ago"),
-  "stats": [("4,200", "STX — top Leo Cat sale"), ("30M", "LEO trader rewards via Bitflow"), ("125K", "STX Leo Cats all-time volume"), ("2", "ALEX DEX hacks survived")],
+  "stats_big": ("20%+", "of supply given to the Stacks community since 2024"),
+  "stats": [("10K", "Leo Cats, minted out"), ("4,200", "STX top Leo Cat sale"), ("125K", "STX Leo Cats volume"), ("2023", "Launched on Stacks, Dec")],
   "asof": "From @LeoCoinSTX posts",
   "contract": "SP1AY6K3PQV5MRT6R4S671NWW2FRVPKM0BR162CT6.leo-token",
   "timeline": [
-   ("~2023", "LEO launches", "Muneeb's pet cat launches on Stacks at a $5k market cap and kicks off the airdrop meta, distributing millions to STX supporters and OGs.", "https://x.com/LeoCoinSTX/status/2111939543935164519"),
-   ("2023–25", "Surviving the bear", "Survives 90%+ STX drawdowns and two ALEX DEX hacks, which hit its main liquidity pool at the time.", "https://x.com/LeoCoinSTX/status/2111939543935164519"),
-   ("Jul 2025", "Meow Mondays & bounties", "Weekly community bounties launch on Zero Authority DAO, alongside LEO farming on Bitflow.", "https://x.com/LeoCoinSTX/status/1944654228477427798"),
-   ("Sep 2025", "Bye bye MEXC", "LEO asks to be voluntarily delisted from MEXC — this cat will not be bossed around.", "https://x.com/LeoCoinSTX/status/1965386994714046561"),
-   ("Jun 2026", "Record Leo Cat sale", "A rarity #1 Leo Cat sells for 4,200 STX, the highest sale of all time. Leo Cats can now be inscribed on Bitcoin too.", "https://x.com/LeoCoinSTX/status/2067213543565586889"),
-   ("Jul 2026", "HODLMM pool on Bitflow", "The LEO/STX HODLMM pool goes live on Bitflow, with 30M LEO in trader rewards.", "https://x.com/LeoCoinSTX/status/2075637768857010576"),
-   ("Sep 2026", "Leo Cats climb the charts", "Leo Cats reach 16th in all-time STX NFT volume, with 125k STX traded.", "https://x.com/LeoCoinSTX/status/2099842841489154339"),
-   ("Oct 2026", "Swap on Tenero", "LEO becomes swappable directly on Tenero, and 30M LEO (~$3,000) in 'Feed the Cat' rewards are distributed.", "https://x.com/LeoCoinSTX/status/2107848804808663418"),
+   ("Dec 2023", "Leo comes on-chain", "$LEO launches on Stacks, named for Muneeb Ali's real cat, first introduced to the world in a 2011 tweet about two kittens, Leo and Parker. It becomes one of the earliest community memecoins on the network.", "https://x.com/LeoCoinSTX/status/1741095662156955930"),
+   ("Jan 2024", "Airdrop tour", "Rather than one big drop, $LEO seeds its holder base by airdropping straight into Stacks NFT communities: Megapont Ape Club first, then 0.5% of supply across active BNS holders, then a surprise drop for Honey Badgers, among several other community airdrops.", "https://x.com/MegapontNFT/status/1743682303090446378"),
+   ("Jan 2024", "Onto the exchanges", "$LEO lists on CoinGecko within days of launch, and the last of the early community airdrops go out on January 20.", "https://x.com/LeoCoinSTX/status/1742276728947433685"),
+   ("Feb 2024", "MEXC Kickstarter", "Leo becomes the first Dextools-listed project on Stacks and wins a MEXC Kickstarter vote. The same week, $LEO cracks CoinGecko's top 1000.", "https://x.com/LeoCoinSTX/status/1762084705267302507"),
+   ("Mar 2024", "A week of firsts", "Featured twice on Stacks' own website, live value inside the Xverse wallet, and Muneeb joins the team on the Stacks DeFi show, all in one week.", "https://x.com/LeoCoinSTX/status/1764313678361629108"),
+   ("Mar 10, 2024", "The biggest airdrop in Stacks history", "$LEO airdrops 5% of its supply, worth about $1.35m at the time, to STX holders, and burns another 5% alongside it.", "https://x.com/LeoCoinSTX/status/1766776687411552426"),
+   ("Mar 13, 2024", "Listed on CoinMarketCap", "$LEO goes live on CoinMarketCap.", "https://x.com/LeoCoinSTX/status/1767837464801001512"),
+   ("Apr 23, 2024", "Happy birthday, Leo", "Muneeb marks the day himself: \"Happy birthday to Leo, the cat,\" the same date he first introduced Leo and Parker back in 2011.", "https://x.com/muneeb/status/1782795324366438829"),
+   ("Sep 2024", "Leo Cats mint out", "The 10,000-piece Leo Cats collection mints out on September 30, the first 10k PFP collection to sell out on Stacks. The \"LEO Origins\" mini-documentary follows weeks later.", "https://x.com/LeoCoinSTX/status/1840809152257372545"),
+   ("Oct 31, 2024", "Halloween Leo", "A free Halloween Leo Bitcoin art mint on Gamma.", "https://x.com/LeoCoinSTX/status/1851934000148803949"),
+   ("Dec 2024", "12 days of Christmas", "Daily games and $LEO prizes, plus the free LEO Ordinals Art Pass by @ReeceSwanepoel, making holders eligible for future artist drops.", "https://x.com/LeoCoinSTX/status/1866856778954141899"),
+   ("Dec 2024", "Community first", "After the \"Goat\" token rug pull, the team reimburses 70m+ $LEO to affected holders from the team wallet. Leo holders land the 6th largest community allocation of the Pizza Pets airdrop, and the project turns one on December 29.", "https://x.com/LeoCoinSTX/status/1863618061779026254"),
+   ("Feb 2025", "Native Xverse swaps", "Xverse adds direct STX to SIP-10 swaps in the wallet, with $LEO among the first Stacks memecoins featured.", ""),
+   ("Feb 18, 2025", "First Bitcoin art drop", "Leo's first Bitcoin art drop goes out free on Gamma for Art Pass holders, with artwork from Stacks OG @GPSC_STX.", "https://x.com/LeoCoinSTX/status/1891850625379397694"),
+   ("Jul 2025", "Meow Mondays", "Weekly bounties and holder giveaways kick off through Zero Authority DAO, with 1.25m $LEO up for grabs in the first week alone.", "https://x.com/LeoCoinSTX/status/1944654228477427798"),
+   ("Aug 1, 2025", "Feline Fridays", "A second weekly bounty series launches, with at least 25m $LEO committed to reward Stacks content creators.", "https://x.com/LeoCoinSTX/status/1951259444073079206"),
+   ("Aug 2025", "FPL league, year 3", "The $LEO Fantasy Premier League goes live for a third straight season, with 2.5m $LEO in prizes plus bonus Leo Cats rewards.", "https://x.com/LeoCoinSTX/status/1955175749792808961"),
+   ("Dec 2025", "Two years on", "Leo marks two years on Stacks: \"what a wild ride this year has been.\"", "https://x.com/LeoCoinSTX/status/2005894416045650190"),
+   ("Jun 2026", "Leo Cats NFT momentum", "Leo Cats get permanent on-chain inscriptions, top Gamma's 30-day volume leaderboard with 25k STX traded and land on Gamma's homepage.", "https://x.com/LeoCoinSTX/status/2071168323677769892"),
+   ("Jul 2026", "Zest swap spotlight", "$LEO is featured in Zest Protocol's swap launch, celebrated with a Leo Cat NFT giveaway and an LP strategies bootcamp.", "https://x.com/LeoCoinSTX/status/2080257985474081263"),
+   ("Jul 27, 2026", "HODLMM pool goes live", "The LEO/STX HODLMM pool on Bitflow opens to trading after a community-controlled launch, with 30m $LEO in trader rewards, capping a July where $LEO finished up 20%.", "https://x.com/LeoCoinSTX/status/2081788219692404872"),
+   ("Jul 30, 2026", "Stacks 4.0", "Leo cheers on the Stacks 4.0 announcement with the rest of the ecosystem.", "https://x.com/LeoCoinSTX/status/2082757014032122280"),
+   ("Aug 2026", "Feed the Cat", "feedthecat.app tracks $LEO buys and trader rewards. The campaign drives $20k in net buys and $200k+ in volume in its first 30 days.", "https://x.com/LeoCoinSTX/status/2092255382001668387"),
+   ("Aug 23, 2026", "No foundation, no games", "The team confirms there's no \"Leo foundation\", less than 1% of supply sits in the team wallet, and over 20% has been given to the Stacks community since 2024.", "https://x.com/LeoCoinSTX/status/2091424274934345892"),
+   ("Sep 2026", "New look, LEO₿", "A visual refresh and a new \"cat tags\" feature, both built with @boostx_app.", "https://x.com/LeoCoinSTX/status/2096893018230128947"),
+   ("Sep 15, 2026", "Leo Cats by the numbers", "16th all-time in Stacks NFT volume, 2nd all-time in secondary sales and the most unique holders of any PFP collection on Stacks.", "https://x.com/LeoCoinSTX/status/2099842841489154339"),
+   ("Oct 2026", "Swap on Tenero", "$LEO becomes swappable directly on Tenero, and 30m $LEO (~$3,000) in Feed the Cat rewards are distributed to traders.", "https://x.com/LeoCoinSTX/status/2112495669651124708"),
+   ("Ongoing", "Growing $STX, one cat at a time", "Beyond the milestones, Leo keeps a steady drumbeat of community activity: sponsored events, ecosystem partnerships and recurring poker tournaments among them.", ""),
   ],
   "news": [
    ("leo", "Oct 29", "https://x.com/LeoCoinSTX/status/2115764194796810397", "Happy International Cat Day 🐱\n\nFrom your favourite cat on @Stacks - $LEO"),
@@ -234,6 +254,7 @@ PAGE_CSS = """
   .tl-item:hover h3{color:var(--orange)}
   .ca{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px;font-size:13px;color:var(--muted)}
   .ca code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--ink);word-break:break-all}
+  .ca-link{font-weight:600;color:var(--orange)}
   .ca button{font:inherit;font-weight:600;border:0;background:var(--ink);color:#fff;border-radius:999px;padding:8px 14px;cursor:pointer}
   .feature{display:block;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px -30px rgba(252,100,50,.5);transition:transform .25s ease,box-shadow .25s ease;position:relative}
   .feature:hover{transform:translateY(-4px);box-shadow:0 40px 80px -30px rgba(252,100,50,.6)}
@@ -323,7 +344,11 @@ def bounties_html(items):
         <span class="post-more">View bounty →</span></a>''' for w, t, u, e, i, g, pool in items)
 
 def timeline_html(items):
-    return "".join(f'<a class="tl-item" href="{u}" target="_blank" rel="noopener"><div class="when">{esc(w)}</div><h3>{esc(t)}</h3><p>{hl(p)}</p></a>' for w, t, p, u in items)
+    out = ""
+    for w, t, p, u in items:
+        inner = f'<div class="when">{esc(w)}</div><h3>{esc(t)}</h3><p>{hl(p)}</p>'
+        out += f'<a class="tl-item" href="{u}" target="_blank" rel="noopener">{inner}</a>' if u else f'<div class="tl-item">{inner}</div>'
+    return out
 
 def episodes_html(eps):
     out = []
@@ -357,7 +382,7 @@ def ca_html(d):
         return ""
     c = esc(d["contract"])
     return f"""
-      <div class="ca">Contract <code id="ca">{c}</code><button type="button" onclick="(function(b){{try{{navigator.clipboard.writeText(document.getElementById('ca').textContent);b.textContent='Copied';}}catch(e){{}}}})(this)">Copy</button></div>"""
+      <div class="ca">Contract <code id="ca">{c}</code><a class="ca-link" href="https://explorer.hiro.so/txid/{c}?chain=mainnet" target="_blank" rel="noopener">Explorer ↗</a><button type="button" onclick="(function(b){{try{{navigator.clipboard.writeText(document.getElementById('ca').textContent);b.textContent='Copied';}}catch(e){{}}}})(this)">Copy</button></div>"""
 
 def page(key):
     d = DATA[key]
@@ -496,7 +521,7 @@ def page(key):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(d["title"])} — Reubs</title>
+<title>{esc(d["title"])} | Reubs</title>
 <meta name="description" content="{esc(d["title"])}: {esc(d["tagline"])}">
 <link rel="icon" href="../avatar.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -588,7 +613,7 @@ def contact_page():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — Reubs</title>
+<title>Contact | Reubs</title>
 <meta name="description" content="All of Reubs' links in one place.">
 <link rel="icon" href="../avatar.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
