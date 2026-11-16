@@ -358,12 +358,63 @@ def bounties_html(items):
         <div class="b-stats"><span><b>{e}</b> entries</span><span><b>{k(i)}</b> impressions</span><span><b>{k(g)}</b> engagements</span></div>
         <span class="post-more">View bounty →</span></a>''' for w, t, u, e, i, g, pool in items)
 
-def timeline_html(items):
-    out = ""
+TL_ICONS = {
+ "rocket": "M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2M14 4c3-1 6-1 6-1s0 3-1 6l-6 6-5-5 6-6zM9 10l-3 1-2 3 4 1M14 15l-1 3-3 2-1-4",
+ "gift": "M3 8h18v4H3zM5 12v9h14v-9M12 8v13M12 8S10 3 7.5 4 9 8 12 8zm0 0s2-5 4.5-4S15 8 12 8",
+ "chart": "M3 17l6-6 4 4 8-8M15 7h6v6",
+ "image": "M4 4h16v16H4zM9 10.5a1.5 1.5 0 1 0-.01 0M20 15l-5-5-9 10",
+ "users": "M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 20v-2a4 4 0 0 0-3-3.9M16 2.1a4 4 0 0 1 0 7.8",
+ "swap": "M7 7h13l-4-4M17 17H4l4 4",
+ "cake": "M4 21h16v-8H4zM4 16c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 4 0M12 13V9M12 6a1.5 1.5 0 0 0 1.5-1.5C13.5 3 12 2 12 2s-1.5 1-1.5 2.5A1.5 1.5 0 0 0 12 6",
+ "palette": "M12 3a9 9 0 1 0 0 18c1 0 1.5-.8 1.5-1.5 0-1.2-1-1.5-1-2.5s.8-1.5 2-1.5H17a4 4 0 0 0 4-4c0-4.4-4-8.5-9-8.5zM7.5 11.5h.01M10 7.5h.01M15 7.5h.01",
+ "trophy": "M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3",
+ "shield": "M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z",
+ "heart": "M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z",
+ "spark": "M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z",
+}
+# title -> (icon, optional (big stat, stat label)) for the LEO timeline
+TL_META = {
+ "Leo comes on-chain": ("rocket", ("$5K", "launch market cap")),
+ "Airdrop tour": ("gift", None), "Onto the exchanges": ("chart", None), "MEXC Kickstarter": ("trophy", None),
+ "A week of firsts": ("spark", None),
+ "The biggest airdrop in Stacks history": ("gift", ("5%", "of supply airdropped to STX holders")),
+ "Listed on CoinMarketCap": ("chart", None), "Happy birthday, Leo": ("cake", None),
+ "Leo Cats mint out": ("image", ("10K", "Leo Cats minted out")),
+ "Halloween Leo": ("palette", None), "12 days of Christmas": ("gift", None), "Community first": ("heart", None),
+ "Native Xverse swaps": ("swap", None), "First Bitcoin art drop": ("palette", None), "Meow Mondays": ("users", None),
+ "Feline Fridays": ("users", None), "FPL league, year 3": ("trophy", None), "Two years on": ("cake", None),
+ "Leo Cats NFT momentum": ("image", None), "Zest swap spotlight": ("swap", None), "HODLMM pool goes live": ("swap", None),
+ "Stacks 4.0": ("spark", None), "Feed the Cat": ("chart", None),
+ "No foundation, no games": ("shield", ("20%+", "of supply given to the Stacks community")),
+ "New look, LEO₿": ("spark", None), "Leo Cats by the numbers": ("image", None), "Swap on Tenero": ("swap", None),
+ "Growing Stacks, one cat at a time!": ("heart", None),
+}
+
+def timeline_html(items, rich=False):
+    if not rich:
+        out = ""
+        for w, t, p, u in items:
+            inner = f'<div class="when">{esc(w)}</div><h3>{esc(t)}</h3><p>{hl(p)}</p>'
+            out += f'<a class="tl-item" href="{u}" target="_blank" rel="noopener">{inner}</a>' if u else f'<div class="tl-item">{inner}</div>'
+        return f'<div class="tl">{out}</div>'
+    out, year, side = "", None, 0
     for w, t, p, u in items:
-        inner = f'<div class="when">{esc(w)}</div><h3>{esc(t)}</h3><p>{hl(p)}</p>'
-        out += f'<a class="tl-item" href="{u}" target="_blank" rel="noopener">{inner}</a>' if u else f'<div class="tl-item">{inner}</div>'
-    return out
+        m = re.search(r"20\d\d", w)
+        y = m.group(0) if m else "Now"
+        if y != year:
+            year = y
+            out += f'<div class="ltl-year"><span>{y}</span></div>'
+        icon, stat = TL_META.get(t, ("spark", None))
+        svg = f'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="{TL_ICONS[icon]}"/></svg>'
+        st = f'<div class="ltl-stat"><b>{esc(stat[0])}</b><span>{esc(stat[1])}</span></div>' if stat else ""
+        more = '<span class="ltl-more">View on X ↗</span>' if u else ""
+        inner = f'<div class="when">{esc(w)}</div><h3>{esc(t)}</h3>{st}<p>{hl(p)}</p>{more}'
+        card = (f'<a class="ltl-card" href="{u}" target="_blank" rel="noopener">{inner}</a>' if u
+                else f'<div class="ltl-card">{inner}</div>')
+        cls = ("l" if side % 2 == 0 else "r") + (" feat" if stat else "")
+        out += f'<div class="ltl-row {cls}"><div class="ltl-dot">{svg}</div>{card}</div>'
+        side += 1
+    return f'<div class="ltl"><img class="ltl-cap" src="../assets/leo.png" alt="">{out}</div>'
 
 def episodes_html(eps):
     out = []
@@ -510,11 +561,11 @@ def page(key):
 </section>"""
         if "timeline" in d:
             mid += f"""
-<section class="band-warm">
+<section class="{"band-leotl" if key == "leo" else "band-warm"}">
   <div class="wrap">
     <div class="label">The story so far</div>
     <h2>Timeline</h2>
-    <div class="tl">{timeline_html(d["timeline"])}</div>
+    {timeline_html(d["timeline"], rich=(key == "leo"))}
   </div>
 </section>"""
         la, lf = d.get("live", ("", ""))
