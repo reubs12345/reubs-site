@@ -228,15 +228,29 @@ PAGE_CSS = """
   .pod-list li::before{content:"→";position:absolute;left:0;color:var(--orange)}
 """
 
+MENU = [("", "Home", "me.png"), ("stacks/", "Stacks", "stacks.png"), ("tenero/", "Tenero", "tenero.png"),
+        ("stacked-up/", "Stacked Up", "stackedup.png"), ("leo/", "LEO", "leo.png"), ("contact/", "Contact", "me.png")]
+
+def mobile_nav(base, active):
+    """Hamburger button + dropdown + fixed bottom tab bar. base='' for home, '../' for subpages."""
+    btn = '<button class="menu-btn" type="button" aria-label="Menu" onclick="document.body.classList.toggle(\'menu-open\')"><span></span><span></span><span></span></button>'
+    menu = "".join(f'<a href="{(base + h) or './'}"{" class=\"on\"" if h == active else ""}><img src="{base}assets/{img}" alt="">{t}<span class="arr">→</span></a>' for h, t, img in MENU)
+    tabs = "".join(f'<a href="{(base + h) or './'}"{" class=\"on\"" if h == active else ""}><img src="{base}assets/{img}" alt="">{t}</a>' for h, t, img in MENU[:5])
+    return btn, f'<div class="mobile-menu">{menu}</div>', f'<div class="tabbar" role="navigation" aria-label="Sections">{tabs}</div>'
+
 def nav(active):
     act = ' style="color:var(--ink)"'
     links = "".join(f'<a href="../{k}/"{act if k == active else ""}>{t}</a>' for k, t in NAV)
+    btn, menu, tabs = mobile_nav("../", active + "/")
     return f"""<nav>
   <div class="wrap">
     <a href="../" class="logo"><img src="../assets/me.png" alt="">reubs</a>
     <div class="nav-links">{links}</div>
+    {btn}
   </div>
-</nav>"""
+  {menu}
+</nav>
+{tabs}"""
 
 def news_cards(items):
     out = []
@@ -560,6 +574,16 @@ def contact_page():
 </body>
 </html>
 """
+
+# Home page: inject mobile nav between markers
+home_p = SITE / "index.html"
+h = home_p.read_text()
+btn, menu, tabs = mobile_nav("", "")
+h = re.sub(r"\s*<!--mnav-->.*?<!--/mnav-->", "", h, flags=re.S)
+h = h.replace('<div class="nav-links">', '<!--mnav-->' + '<!--/mnav-->' + '<div class="nav-links">', 1) if False else h
+h = re.sub(r'(<div class="nav-links">.*?</div>)', lambda m: m.group(1) + "\n    <!--mnav-->" + btn + "<!--/mnav-->", h, count=1, flags=re.S)
+h = re.sub(r'(  </div>\n</nav>)', lambda m: "  </div>\n  <!--mnav-->" + menu + "<!--/mnav-->\n</nav>\n<!--mnav-->" + tabs + "<!--/mnav-->", h, count=1)
+home_p.write_text(h)
 
 for key, _ in ORDER:
     p = SITE / key
