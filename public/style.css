@@ -243,7 +243,7 @@
   .cover-art.blur{right:24%;width:clamp(110px,15vw,170px);transform:translateY(-38%) rotate(10deg);opacity:.35;filter:blur(2px)}
   .cover-word{position:absolute;left:28px;bottom:-.18em;font-size:clamp(70px,13vw,150px);font-weight:800;letter-spacing:-.05em;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.16);white-space:nowrap}
   .page-hero .back{margin-bottom:18px}
-  .page-hero .cover-wrap + .hero-grid .page-logo{margin-top:-54px;margin-left:24px;position:relative;border:4px solid #fff;width:92px;height:92px;border-radius:24px}
+  .page-hero .cover-wrap:not(.photo-wrap) + .hero-grid .page-logo{margin-top:-54px;margin-left:24px;position:relative;border:4px solid #fff;width:92px;height:92px;border-radius:24px}
   .page-hero{padding-top:28px}
   .page-hero .cover-wrap{margin-bottom:8px}
   @media(max-width:640px){.cover-word{left:16px}.cover-art{right:4%}.cover-art.blur{display:none}}
@@ -258,5 +258,7 @@
   @keyframes rise{from{opacity:0;transform:translateY(24px)}}
   @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}.tk-live i{animation:none}}
   .page-hero .hero-grid{align-items:start}
-  .cover.photo{background-position:center 22%}
+  .cover.photo{height:auto;aspect-ratio:3/1;background-position:center;box-shadow:0 30px 60px -30px rgba(12,12,13,.45)}
+  .cover.photo::after{display:none}
+  .page-hero .photo-wrap{margin-bottom:28px}
   .page-hero .hero-grid > .stats{margin-top:28px}

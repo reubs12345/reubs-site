@@ -202,7 +202,7 @@ DATA["stx-legion"] = {
   ],
 }
 
-COVER_PHOTO = {"stacked-up": "../episode-thumbnail.jpg"}  # others get a generated brand cover
+COVER_PHOTO = {"stacks": "../assets/cover-stacks.jpg", "tenero": "../assets/cover-tenero.jpg", "stacked-up": "../assets/cover-stacked-up.jpg", "leo": "../assets/cover-leo.jpg"}  # others get a generated brand cover
 COVER_WORD = {"stx-legion": "Legion", "stacked-up": "Stacked Up", "leo": "$LEO"}
 
 def cover_html(key, title, img):
@@ -550,7 +550,7 @@ def page(key):
 {nav(key)}
 
 <header class="hero page-hero">
-  <div class="wrap cover-wrap">
+  <div class="wrap cover-wrap{' photo-wrap' if key in COVER_PHOTO else ''}">
     <a class="back" href="../">← Back to Reubs</a>
     {cover_html(key, d["title"], "../assets/" + d["logo"])}
   </div>
