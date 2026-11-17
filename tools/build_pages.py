@@ -185,6 +185,7 @@ DATA["stx-legion"] = {
             "Live X feeds, KOL channel, a dedicated Korean channel and much more.",
             "Builders, creators, founders and community members welcome! We also run weekly content bounties on Zero Authority DAO, rewarding creators for spreading the word about Stacks."],
   "links": [("tg", "Join on Telegram", "https://t.me/+wcOPrJbqGfxiMTY0"),
+            ("x", "Join the X chat", "https://x.com/i/chat/group_join/g2094436853315182765/9m6NFbUJ3Q"),
             ("web", "Bounties on Zero Authority", "https://zeroauthoritydao.com/bounty-hub/72bc33ef-ada8-4d1a-bc68-551df2032f0d")],
   "stats_big": ("630K", "Impressions from bounty posts"),
   "stats": [("12", "Bounties hosted"), ("670", "Total entries"), ("37.9K", "Total engagements"), ("6,000", "STX reward pools")],
