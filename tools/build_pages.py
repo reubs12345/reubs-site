@@ -39,13 +39,13 @@ DATA = {
   "podcasts": [
    ("New Era Finance Podcast", "@new_era_finance", "Nov 12", "https://x.com/new_era_finance/status/2120939689515610454",
     "Muneeb Ali: \"I think the bottom is in\"",
-    ["Why negative news stopped moving the price", "The quantum question and self-custody", "Bitcoin as an income-generating asset"]),
+    ["Why negative news stopped moving the price", "The quantum question and self-custody", "Bitcoin as an income-generating asset"], "pod-new-era.jpg"),
    ("The White Papers · The Block", "@TheBlockCo", "Nov 10", "https://x.com/TheBlockCo/status/2120212634914238747",
     "Muneeb on turning bitcoin into productive capital",
-    ["How Stacks bonds pay bitcoin holders 3% in BTC", "Stacks vs. Lightning", "The quantum threat and Satoshi's coins"]),
+    ["How Stacks bonds pay bitcoin holders 3% in BTC", "Stacks vs. Lightning", "The quantum threat and Satoshi's coins"], "pod-the-block.jpg"),
    ("The Wolf Of All Streets", "@scottmelker", "Nov 9", "https://x.com/scottmelker/status/2119859166600990761",
     "Bitcoin's Biggest \"Bond\" Yet Just Sold Out — What Do Institutions Know?",
-    ["Why Muneeb is returning to lead Stacks", "Bullish joins the 1,000 BTC Stacks bond", "How Bitcoin yield could drive value to STX"]),
+    ["Why Muneeb is returning to lead Stacks", "Bullish joins the 1,000 BTC Stacks bond", "How Bitcoin yield could drive value to STX"], "pod-wolf.jpg"),
   ],
   "pillars_title": "The roadmap",
   "pillars": [("01", "Bitcoin Capital Markets", "Live now — BTC staking, bonds and DeFi."),
@@ -296,6 +296,11 @@ PAGE_CSS = """
   @media(max-width:860px){.pods{grid-template-columns:1fr}}
   .pod{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 2px rgba(12,12,13,.04),0 10px 30px -16px rgba(12,12,13,.14);transition:transform .2s ease,border-color .2s ease}
   .pod:hover{transform:translateY(-3px);border-color:var(--orange)}
+  .pod-thumb{position:relative;margin:-10px -10px 4px;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#0C0C0D}
+  .pod-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+  .pod:hover .pod-thumb img{transform:scale(1.04)}
+  .pod-play{position:absolute;right:12px;bottom:12px;width:44px;height:44px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;box-shadow:0 8px 20px -6px rgba(0,0,0,.6)}
+  .pod-play svg{width:20px;height:20px;margin-left:2px}
   .pod .mic{width:44px;height:44px;border-radius:12px;background:var(--orange-soft);color:var(--orange);display:grid;place-items:center}
   .pod .mic svg{width:22px;height:22px}
   .pod .who{font-size:13px;color:var(--muted)}
@@ -535,7 +540,8 @@ def page(key):
 </section>"""
         if "podcasts" in d:
             mic = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg>'
-            pc = "".join(f'<a class="pod" href="{u}" target="_blank" rel="noopener"><div class="mic">{mic}</div><div class="who"><b style="color:var(--ink)">{esc(show)}</b><br>{h} · {dt}</div><h3>{hl(t)}</h3><ul class="pod-list">{"".join(f"<li>{hl(x)}</li>" for x in bl)}</ul><span class="post-more">Watch on X →</span></a>' for show, h, dt, u, t, bl in d["podcasts"])
+            play = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg>'
+            pc = "".join(f'<a class="pod" href="{u}" target="_blank" rel="noopener"><div class="pod-thumb"><img src="../assets/{img}" alt="{esc(show)} episode" loading="lazy"><span class="pod-play">{play}</span></div><div class="who"><b style="color:var(--ink)">{esc(show)}</b><br>{h} · {dt}</div><h3>{hl(t)}</h3><ul class="pod-list">{"".join(f"<li>{hl(x)}</li>" for x in bl)}</ul><span class="post-more">Watch on X →</span></a>' for show, h, dt, u, t, bl, img in d["podcasts"])
             extra_mid = f"""
 
 <section class="band-warm">
