@@ -126,6 +126,9 @@ DATA["leo"] = {
   "live": ("LeoCoinSTX", ""),
   "notice": "$LEO is a community memecoin with no utility and no intrinsic value. Nothing on this page is financial advice.",
   "links": [("x", "@LeoCoinSTX", "https://x.com/LeoCoinSTX"),
+            ("dc", "Join the Discord", "https://discord.gg/dPFx9YDwr9"),
+            ("tg", "Join on Telegram", "https://t.me/+8rJPgGVtGxA4NTE1"),
+            ("x", "Join the X chat", "https://x.com/i/chat/group_join/g2077334179189321894/N858ckC90k"),
             ("web", "Trade on Tenero", "https://tenero.io/stacks/swap?from=STX&to=SP1AY6K3PQV5MRT6R4S671NWW2FRVPKM0BR162CT6.leo-token"),
             ("web", "Trade on Zest", "https://app.zestprotocol.com/swap/stx-to-leo"),
             ("web", "Trade on Bitflow", "https://app.bitflow.finance/pools/dlmm/SM1FKXGNZJWSTWDWXQZJNF7B5TV5ZB235JTCXYXKD.dlmm-pool-leo-stx-v-1-bps-50"),
@@ -219,7 +222,7 @@ NAV = ORDER + [("contact", "Contact")]
 AUTHORS = {"reubs": ("reubs", "@reubs_btc", "../assets/me.png", True),
            "tenero": ("Tenero", "@tenero_io", "../assets/tenero.png", False),
            "leo": ("LEO", "@LeoCoinSTX", "../assets/leo.png", False)}
-ICON = {"x": "i-x", "web": "i-web", "yt": "i-yt", "tt": "i-tt", "ig": "i-ig", "tg": "i-tg", "cmc": "i-verified"}
+ICON = {"x": "i-x", "web": "i-web", "yt": "i-yt", "tt": "i-tt", "ig": "i-ig", "tg": "i-tg", "dc": "i-dc", "cmc": "i-verified"}
 
 PAGE_CSS = """
   .back{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--muted);margin-bottom:28px}
