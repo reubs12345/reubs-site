@@ -98,11 +98,13 @@ DATA = {
   "tagline": "Weekly livestream on Stacks, Bitcoin and the market.",
   "intro": "Live every Wednesday, 2pm UK / 9am EST — the week in Bitcoin and Stacks, market data from Tenero, DeFi strategies and community spotlights.",
   "links": [("yt", "YouTube", "https://www.youtube.com/@reubsbtc"), ("x", "@StackedUpStream", "https://x.com/StackedUpStream"), ("tt", "TikTok", "https://www.tiktok.com/@stackedupcrypto")],
-  "stats_big": ("8", "Episodes so far"),
+  "stats_big": ("9", "Episodes so far"),
   "stats_big_live": "episodes",
   "stats": [("Weekly", "Every Wednesday"), ("2pm UK", "9am EST"), ("3", "Platforms: YouTube, X, TikTok"), ("Shorts", "On TikTok & YouTube")],
   # episodes: (num, date, watch_url, recap_url, bullets)
   "episodes": [
+   ("9", "Nov 18", "https://youtu.be/bgWcma1NQHo", "https://x.com/reubs_btc/status/2123081247853605236",
+    ["$BTC drops 12% to $65k", "$STX steady at $0.28, 5th on CMC over 90 days", "Xverse launches multisig", "Zest airdrop claims open Nov 19"]),
    ("8", "Nov 11", "https://youtu.be/CDSTaj74gbU", "https://x.com/reubs_btc/status/2120545704024383632",
     ["$BTC drops below $74k into the fear zone", "Stacks BTC staking bond 3 fills with 1,005 BTC", "Zest Protocol launches CLMM", "Tenero x Xverse integration"]),
    ("7", "Nov 4", "https://youtu.be/fyjzeKex4Cc", "https://x.com/reubs_btc/status/2118009105009070238",
