@@ -96,11 +96,11 @@ DATA = {
  "stacked-up": {
   "title": "Stacked Up", "logo": "stackedup.png", "role": "Host",
   "tagline": "Weekly livestream on Stacks, Bitcoin and the market.",
-  "intro": "Live every Wednesday, 3pm UK / 10am EST — the week in Bitcoin and Stacks, market data from Tenero, DeFi strategies and community spotlights.",
+  "intro": "Live every Wednesday, 2pm UK / 9am EST — the week in Bitcoin and Stacks, market data from Tenero, DeFi strategies and community spotlights.",
   "links": [("yt", "YouTube", "https://www.youtube.com/@reubsbtc"), ("x", "@StackedUpStream", "https://x.com/StackedUpStream"), ("tt", "TikTok", "https://www.tiktok.com/@stackedupcrypto")],
   "stats_big": ("8", "Episodes so far"),
   "stats_big_live": "episodes",
-  "stats": [("Weekly", "Every Wednesday"), ("3pm UK", "10am EST"), ("3", "Platforms: YouTube, X, TikTok"), ("Shorts", "On TikTok & YouTube")],
+  "stats": [("Weekly", "Every Wednesday"), ("2pm UK", "9am EST"), ("3", "Platforms: YouTube, X, TikTok"), ("Shorts", "On TikTok & YouTube")],
   # episodes: (num, date, watch_url, recap_url, bullets)
   "episodes": [
    ("8", "Nov 11", "https://youtu.be/CDSTaj74gbU", "https://x.com/reubs_btc/status/2120545704024383632",
